@@ -15,7 +15,6 @@
 | Project | Description |
 |--------:|-------------|
 | **Moto Agent SPA** | A localStorage-powered Motorcycle Spare Parts & Workshop Management System with dynamic routing, QR support, billing, invoicing, and analytics. |
-| **[Your Other Project]** | *(Add a short description of another project you’d like to highlight.)* |
 
 <p><em>Showcasing both frontend logic and UX-focused design, with a clean structure for future API integration.</em></p>
 

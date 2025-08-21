@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Atlas Honda Agent — Spare Parts & Workshop</title>
+  <link rel="icon" href="logo.png" />
+  <link rel="stylesheet" href="style.css" />
+  <!-- Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/jspdf"></script>
+  <script src="https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+  <script src="https://unpkg.com/html5-qrcode"></script>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <img src="Atlas-Honda-logo.jpg" alt="Atlas Honda" onerror="this.style.display='none'"/>
+        <div>
+          <h1>Atlas Honda</h1>
+          <small>Agent Suite</small>
+        </div>
+      </div>
+      <nav id="nav">
+        <button data-view="dashboard" class="active">Dashboard</button>
+        <button data-view="inventory">Inventory</button>
+        <button data-view="billing">Billing</button>
+        <button data-view="returns">Returns</button>
+        <button data-view="workshop">Workshop</button>
+        <button data-view="reports">Reports</button>
+      </nav>
+      <footer class="sidebar-footer">v1.0 — SPA (LocalStorage)</footer>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <input id="globalSearch" type="search" placeholder="Search items, invoices, customers…" />
+        <div class="profile">
+          <span class="user">Agent</span>
+          <div class="menu">
+            <button id="backupBtn" title="Export backup">⭳</button>
+            <button id="restoreBtn" title="Import backup">⭱</button>
+            <input id="restoreFile" type="file" accept="application/json" hidden />
+          </div>
+        </div>
+      </header>
+
+      <section id="view" class="view"></section>
+    </main>
+  </div>
+
+  <!-- Inventory Modal -->
+  <dialog id="itemModal">
+    <form method="dialog" id="itemForm" class="modal">
+      <h3 id="itemModalTitle">Add Item</h3>
+      <div class="grid2">
+        <label> Name <input name="name" required /> </label>
+        <label> Code <input name="code" required /> </label>
+        <label> Qty <input name="qty" type="number" min="0" step="1" required /> </label>
+        <label> Low Stock <input name="low" type="number" min="0" step="1" value="5" /> </label>
+        <label> Purchase <input name="buy" type="number" min="0" step="0.01" required /> </label>
+        <label> Sell <input name="sell" type="number" min="0" step="0.01" required /> </label>
+        <label class="full"> Supplier <input name="supplier" /> </label>
+        <label class="full"> Description <textarea name="desc" rows="2"></textarea> </label>
+      </div>
+      <menu>
+        <button value="cancel" class="ghost">Cancel</button>
+        <button value="ok" class="primary">Save</button>
+      </menu>
+    </form>
+  </dialog>
+
+  <!-- Toast container -->
+  <div id="toast"></div>
+
+  <script src="app.js"></script>
+</body>
+</html>

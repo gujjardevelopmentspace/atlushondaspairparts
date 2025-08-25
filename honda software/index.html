@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Atlas Honda Agent — Spare Parts & Workshop</title>
+  <title> Master Honda — Spare Parts & Workshop Suite</title>
   <link rel="icon" href="logo.png" />
   <link rel="stylesheet" href="style.css" />
   <!-- Libraries -->
@@ -15,30 +15,45 @@
 </head>
 <body>
   <div class="app">
-    <aside class="sidebar">
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
       <div class="brand">
         <img src="Atlas-Honda-logo.jpg" alt="Atlas Honda" onerror="this.style.display='none'"/>
         <div>
-          <h1>Atlas Honda</h1>
-          <small>Agent Suite</small>
+          <h1> Master Honda</h1>
+          <small>Spare Parts & Workshop</small>
         </div>
       </div>
       <nav id="nav">
         <button data-view="dashboard" class="active">Dashboard</button>
         <button data-view="inventory">Inventory</button>
         <button data-view="billing">Billing</button>
-        <button data-view="returns">Returns</button>
-        <button data-view="workshop">Workshop</button>
+        <button data-view="returns">Returns/Refunds</button>
+        <button data-view="workshop">Service Jobs</button>
         <button data-view="reports">Reports</button>
       </nav>
-      <footer class="sidebar-footer">v1.0 — SPA (LocalStorage)</footer>
+      <footer class="sidebar-footer">
+        v1.2 — SPA (LocalStorage)
+        <div class="muted">Admin • Agent • Inventory • Service</div>
+      </footer>
     </aside>
 
+    <!-- Main -->
     <main class="main">
+      <!-- Topbar -->
       <header class="topbar">
+        <button class="hamburger" id="hamburger" aria-label="Toggle Menu">☰</button>
         <input id="globalSearch" type="search" placeholder="Search items, invoices, customers…" />
-        <div class="profile">
-          <span class="user">Agent</span>
+        <div class="right">
+          <label class="role">
+            Role
+            <select id="roleSelect">
+              <option value="agent" selected>Agent</option>
+              <option value="admin">Admin</option>
+              <option value="inventory">Inventory</option>
+              <option value="service">Service</option>
+            </select>
+          </label>
           <div class="menu">
             <button id="backupBtn" title="Export backup">⭳</button>
             <button id="restoreBtn" title="Import backup">⭱</button>
@@ -47,6 +62,7 @@
         </div>
       </header>
 
+      <!-- Dynamic View -->
       <section id="view" class="view"></section>
     </main>
   </div>
@@ -75,6 +91,8 @@
   <!-- Toast container -->
   <div id="toast"></div>
 
+  <!-- App Logic -->
   <script src="app.js"></script>
 </body>
 </html>
+

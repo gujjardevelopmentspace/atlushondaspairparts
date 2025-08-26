@@ -1,5 +1,3 @@
-<!-- START PROFILE README -->
-
 <div align="center">
   <h1>Hey there 👋 I’m Yahya – a Passionate Web Developer</h1>
   <p>Crafting modern, efficient, and user-friendly web solutions with Vanilla JS, HTML & CSS.</p>
